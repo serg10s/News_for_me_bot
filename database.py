@@ -37,7 +37,7 @@ class News:
     async def get_news(self):
         self.cur.execute("SELECT * FROM admin_news ORDER BY photo DESC LIMIT 1")
         rows = self.cur.fetchone()
-        await bot.send_photo(chat_id=629990425, photo=rows[0], caption=rows[1] + " Link: " + str(rows[2]))
+        await bot.send_photo(chat_id=os.getenv("ID"), photo=rows[0], caption=rows[1] + " Link: " + str(rows[2]))
 
 
 

@@ -4,9 +4,7 @@ from keyboard import *
 from admin import *
 from aiogram.dispatcher.filters import Command
 from database import *
-import tracemalloc
 
-tracemalloc.start()
 
 new = News()
 new.create_tabla()
@@ -21,8 +19,7 @@ async def command_start(message: types.Message):
 
 @dp.message_handler(commands=["new"])
 async def add_new(message: types.Message):
-    if message.from_user.id == 629990425:
-        await message.answer(await new.get_news())
+    await message.answer(await new.get_news())
 
 
 @dp.message_handler(commands=["News"])
